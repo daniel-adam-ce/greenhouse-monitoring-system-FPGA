@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'nios_system'
  * SOPC Builder design path: ../../nios_system.sopcinfo
  *
- * Generated: Tue Nov 16 11:21:50 PST 2021
+ * Generated: Fri Nov 19 06:48:02 PST 2021
  */
 
 /*
@@ -146,6 +146,7 @@
 #define __ALTERA_AVALON_NEW_SDRAM_CONTROLLER
 #define __ALTERA_AVALON_ONCHIP_MEMORY2
 #define __ALTERA_AVALON_PIO
+#define __ALTERA_AVALON_SPI
 #define __ALTERA_AVALON_SYSID_QSYS
 #define __ALTERA_AVALON_TIMER
 #define __ALTERA_NIOS2_GEN2
@@ -167,19 +168,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart_0"
-#define ALT_STDERR_BASE 0x20c8
+#define ALT_STDERR_BASE 0x20e8
 #define ALT_STDERR_DEV jtag_uart_0
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart_0"
-#define ALT_STDIN_BASE 0x20c8
+#define ALT_STDIN_BASE 0x20e8
 #define ALT_STDIN_DEV jtag_uart_0
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart_0"
-#define ALT_STDOUT_BASE 0x20c8
+#define ALT_STDOUT_BASE 0x20e8
 #define ALT_STDOUT_DEV jtag_uart_0
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -221,7 +222,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart_0 altera_avalon_jtag_uart
-#define JTAG_UART_0_BASE 0x20c8
+#define JTAG_UART_0_BASE 0x20e8
 #define JTAG_UART_0_IRQ 0
 #define JTAG_UART_0_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_0_NAME "/dev/jtag_uart_0"
@@ -239,7 +240,7 @@
  */
 
 #define ALT_MODULE_CLASS_keys altera_avalon_pio
-#define KEYS_BASE 0x2070
+#define KEYS_BASE 0x2090
 #define KEYS_BIT_CLEARING_EDGE_REGISTER 0
 #define KEYS_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define KEYS_CAPTURE 1
@@ -266,7 +267,7 @@
  */
 
 #define ALT_MODULE_CLASS_leds_g altera_avalon_pio
-#define LEDS_G_BASE 0x2060
+#define LEDS_G_BASE 0x2080
 #define LEDS_G_BIT_CLEARING_EDGE_REGISTER 0
 #define LEDS_G_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define LEDS_G_CAPTURE 0
@@ -293,7 +294,7 @@
  */
 
 #define ALT_MODULE_CLASS_leds_r altera_avalon_pio
-#define LEDS_R_BASE 0x20a0
+#define LEDS_R_BASE 0x20c0
 #define LEDS_R_BIT_CLEARING_EDGE_REGISTER 0
 #define LEDS_R_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define LEDS_R_CAPTURE 0
@@ -388,7 +389,7 @@
  */
 
 #define ALT_MODULE_CLASS_seven_seg_0 altera_avalon_pio
-#define SEVEN_SEG_0_BASE 0x2090
+#define SEVEN_SEG_0_BASE 0x20b0
 #define SEVEN_SEG_0_BIT_CLEARING_EDGE_REGISTER 0
 #define SEVEN_SEG_0_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define SEVEN_SEG_0_CAPTURE 0
@@ -415,7 +416,7 @@
  */
 
 #define ALT_MODULE_CLASS_seven_seg_1 altera_avalon_pio
-#define SEVEN_SEG_1_BASE 0x2080
+#define SEVEN_SEG_1_BASE 0x20a0
 #define SEVEN_SEG_1_BIT_CLEARING_EDGE_REGISTER 0
 #define SEVEN_SEG_1_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define SEVEN_SEG_1_CAPTURE 0
@@ -437,12 +438,43 @@
 
 
 /*
+ * spi_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_spi_0 altera_avalon_spi
+#define SPI_0_BASE 0x2040
+#define SPI_0_CLOCKMULT 1
+#define SPI_0_CLOCKPHASE 1
+#define SPI_0_CLOCKPOLARITY 1
+#define SPI_0_CLOCKUNITS "Hz"
+#define SPI_0_DATABITS 32
+#define SPI_0_DATAWIDTH 32
+#define SPI_0_DELAYMULT "1.0E-9"
+#define SPI_0_DELAYUNITS "ns"
+#define SPI_0_EXTRADELAY 0
+#define SPI_0_INSERT_SYNC 0
+#define SPI_0_IRQ 4
+#define SPI_0_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define SPI_0_ISMASTER 1
+#define SPI_0_LSBFIRST 0
+#define SPI_0_NAME "/dev/spi_0"
+#define SPI_0_NUMSLAVES 1
+#define SPI_0_PREFIX "spi_"
+#define SPI_0_SPAN 32
+#define SPI_0_SYNC_REG_DEPTH 2
+#define SPI_0_TARGETCLOCK 128000u
+#define SPI_0_TARGETSSDELAY "0.0"
+#define SPI_0_TYPE "altera_avalon_spi"
+
+
+/*
  * switches configuration
  *
  */
 
 #define ALT_MODULE_CLASS_switches altera_avalon_pio
-#define SWITCHES_BASE 0x20b0
+#define SWITCHES_BASE 0x20d0
 #define SWITCHES_BIT_CLEARING_EDGE_REGISTER 0
 #define SWITCHES_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define SWITCHES_CAPTURE 0
@@ -469,13 +501,13 @@
  */
 
 #define ALT_MODULE_CLASS_sysid_qsys_0 altera_avalon_sysid_qsys
-#define SYSID_QSYS_0_BASE 0x20c0
+#define SYSID_QSYS_0_BASE 0x20e0
 #define SYSID_QSYS_0_ID 0
 #define SYSID_QSYS_0_IRQ -1
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1637039689
+#define SYSID_QSYS_0_TIMESTAMP 1637331436
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 
@@ -486,7 +518,7 @@
 
 #define ALT_MODULE_CLASS_timer_0 altera_avalon_timer
 #define TIMER_0_ALWAYS_RUN 0
-#define TIMER_0_BASE 0x2040
+#define TIMER_0_BASE 0x2060
 #define TIMER_0_COUNTER_SIZE 32
 #define TIMER_0_FIXED_PERIOD 0
 #define TIMER_0_FREQ 50000000

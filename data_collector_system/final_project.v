@@ -1,6 +1,6 @@
 module final_project (CLOCK_50, KEY, SW, LEDR, LEDG, HEX0, HEX1, SDRAM_ADDR, SDRAM_BA, SDRAM_CAS_N, 
 							SDRAM_CKE, SDRAM_CS_N, SDRAM_DQ, SDRAM_DQM, SDRAM_RAS_N, SDRAM_WE_N, SDRAM_CLK,
-							I2C_SCL, I2C_SDA);
+							I2C_SCL, I2C_SDA, SPI_0_SERIAL_MISO, SPI_0_SERIAL_MOSI, SPI_0_SERIAL_SCLK, SPI_0_SERIAL_SS_N);
 	input CLOCK_50;
 	input [31:0] SW;
 	input  [3:0] KEY;
@@ -20,6 +20,10 @@ module final_project (CLOCK_50, KEY, SW, LEDR, LEDG, HEX0, HEX1, SDRAM_ADDR, SDR
 	output		  SDRAM_CLK;
 	inout	tri1	  I2C_SCL;
 	inout	tri1	  I2C_SDA;
+	input         SPI_0_SERIAL_MISO;
+	output        SPI_0_SERIAL_MOSI;
+	output        SPI_0_SERIAL_SCLK;
+	output        SPI_0_SERIAL_SS_N;
 	
 	wire 		I2C_SCL_IN;
 	wire		I2C_SCL_OE;
@@ -53,5 +57,9 @@ module final_project (CLOCK_50, KEY, SW, LEDR, LEDG, HEX0, HEX1, SDRAM_ADDR, SDR
 		.i2c_serial_sda_in(I2C_SDA_IN),
 		.i2c_serial_scl_in(I2C_SCL_IN),
 		.i2c_serial_sda_oe(I2C_SDA_OE),
-		.i2c_serial_scl_oe(I2C_SCL_OE));
+		.i2c_serial_scl_oe(I2C_SCL_OE),
+		.spi_0_serial_MISO(),
+		.spi_0_serial_MOSI(),
+		.spi_0_serial_SCLK(),
+		.spi_0_serial_SS_n());
 endmodule
