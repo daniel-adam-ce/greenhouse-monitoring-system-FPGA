@@ -21,7 +21,11 @@ module nios_system (
 	sdram_clk_clk,
 	seven_seg_0_export,
 	seven_seg_1_export,
-	switches_export);	
+	switches_export,
+	spi_0_serial_MISO,
+	spi_0_serial_MOSI,
+	spi_0_serial_SCLK,
+	spi_0_serial_SS_n);	
 
 	input		clk_clk;
 	input		i2c_serial_sda_in;
@@ -45,4 +49,8 @@ module nios_system (
 	output	[31:0]	seven_seg_0_export;
 	output	[31:0]	seven_seg_1_export;
 	input	[31:0]	switches_export;
+	input		spi_0_serial_MISO;
+	output		spi_0_serial_MOSI;
+	output		spi_0_serial_SCLK;
+	output		spi_0_serial_SS_n;
 endmodule

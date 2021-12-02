@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Nov 16, 2021 11:21:47 AM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1637090507726</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Nov 19, 2021 6:48:01 AM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1637333281331</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\intelFPGA_lite\16.1\final_project\software\final_project_collector_bsp</BspGeneratedLocation>
         <BspSettingsFile>.\settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\nios_system.sopcinfo</SopcDesignFile>
@@ -911,56 +911,62 @@
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>timer_0</slaveDescriptor>
+                <slaveDescriptor>spi_0</slaveDescriptor>
                 <addressRange>0x00002040 - 0x0000205F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_0</slaveDescriptor>
+                <addressRange>0x00002060 - 0x0000207F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>timer</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>leds_g</slaveDescriptor>
-                <addressRange>0x00002060 - 0x0000206F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>keys</slaveDescriptor>
-                <addressRange>0x00002070 - 0x0000207F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>seven_seg_1</slaveDescriptor>
                 <addressRange>0x00002080 - 0x0000208F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>seven_seg_0</slaveDescriptor>
+                <slaveDescriptor>keys</slaveDescriptor>
                 <addressRange>0x00002090 - 0x0000209F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>leds_r</slaveDescriptor>
+                <slaveDescriptor>seven_seg_1</slaveDescriptor>
                 <addressRange>0x000020A0 - 0x000020AF</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>switches</slaveDescriptor>
+                <slaveDescriptor>seven_seg_0</slaveDescriptor>
                 <addressRange>0x000020B0 - 0x000020BF</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>leds_r</slaveDescriptor>
+                <addressRange>0x000020C0 - 0x000020CF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>switches</slaveDescriptor>
+                <addressRange>0x000020D0 - 0x000020DF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>sysid_qsys_0</slaveDescriptor>
-                <addressRange>0x000020C0 - 0x000020C7</addressRange>
+                <addressRange>0x000020E0 - 0x000020E7</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart_0</slaveDescriptor>
-                <addressRange>0x000020C8 - 0x000020CF</addressRange>
+                <addressRange>0x000020E8 - 0x000020EF</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
