@@ -48,8 +48,6 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
-set_global_assignment -name VERILOG_FILE final_project.v
-set_global_assignment -name QIP_FILE nios_system/synthesis/nios_system.qip
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
@@ -220,4 +218,10 @@ set_location_assignment PIN_AD22 -to SPI_0_SERIAL_MISO
 set_location_assignment PIN_AG25 -to SPI_0_SERIAL_MOSI
 set_location_assignment PIN_AD25 -to SPI_0_SERIAL_SCLK
 set_location_assignment PIN_AH25 -to SPI_0_SERIAL_SS_N
+set_global_assignment -name QIP_FILE nios_system/synthesis/nios_system.qip
+set_global_assignment -name VERILOG_FILE final_project.v
+set_location_assignment PIN_AE15 -to BME_MISO
+set_location_assignment PIN_AD21 -to BME_CSN
+set_location_assignment PIN_AE16 -to BME_MOSI
+set_location_assignment PIN_AD15 -to BME_SCK
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

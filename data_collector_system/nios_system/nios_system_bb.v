@@ -1,10 +1,6 @@
 
 module nios_system (
 	clk_clk,
-	i2c_serial_sda_in,
-	i2c_serial_scl_in,
-	i2c_serial_sda_oe,
-	i2c_serial_scl_oe,
 	keys_export,
 	leds_g_export,
 	leds_r_export,
@@ -22,16 +18,13 @@ module nios_system (
 	seven_seg_0_export,
 	seven_seg_1_export,
 	switches_export,
-	spi_0_serial_MISO,
-	spi_0_serial_MOSI,
-	spi_0_serial_SCLK,
-	spi_0_serial_SS_n);	
+	bme_csn_export,
+	bme_sck_export,
+	bme_mosi_export,
+	bme_miso_export,
+	bme_irq_export);	
 
 	input		clk_clk;
-	input		i2c_serial_sda_in;
-	input		i2c_serial_scl_in;
-	output		i2c_serial_sda_oe;
-	output		i2c_serial_scl_oe;
 	input	[3:0]	keys_export;
 	output	[7:0]	leds_g_export;
 	output	[31:0]	leds_r_export;
@@ -49,8 +42,9 @@ module nios_system (
 	output	[31:0]	seven_seg_0_export;
 	output	[31:0]	seven_seg_1_export;
 	input	[31:0]	switches_export;
-	input		spi_0_serial_MISO;
-	output		spi_0_serial_MOSI;
-	output		spi_0_serial_SCLK;
-	output		spi_0_serial_SS_n;
+	output		bme_csn_export;
+	output		bme_sck_export;
+	output		bme_mosi_export;
+	input		bme_miso_export;
+	input		bme_irq_export;
 endmodule

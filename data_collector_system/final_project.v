@@ -1,6 +1,7 @@
 module final_project (CLOCK_50, KEY, SW, LEDR, LEDG, HEX0, HEX1, SDRAM_ADDR, SDRAM_BA, SDRAM_CAS_N, 
 							SDRAM_CKE, SDRAM_CS_N, SDRAM_DQ, SDRAM_DQM, SDRAM_RAS_N, SDRAM_WE_N, SDRAM_CLK,
-							I2C_SCL, I2C_SDA, SPI_0_SERIAL_MISO, SPI_0_SERIAL_MOSI, SPI_0_SERIAL_SCLK, SPI_0_SERIAL_SS_N);
+							BME_CSN, BME_IRQ, BME_MISO, BME_MOSI, BME_SCK
+							);
 	input CLOCK_50;
 	input [31:0] SW;
 	input  [3:0] KEY;
@@ -18,22 +19,15 @@ module final_project (CLOCK_50, KEY, SW, LEDR, LEDG, HEX0, HEX1, SDRAM_ADDR, SDR
 	output        SDRAM_RAS_N;
 	output        SDRAM_WE_N;
 	output		  SDRAM_CLK;
-	inout	tri1	  I2C_SCL;
-	inout	tri1	  I2C_SDA;
-	input         SPI_0_SERIAL_MISO;
-	output        SPI_0_SERIAL_MOSI;
-	output        SPI_0_SERIAL_SCLK;
-	output        SPI_0_SERIAL_SS_N;
 	
-	wire 		I2C_SCL_IN;
-	wire		I2C_SCL_OE;
-	wire		I2C_SDA_IN;
-	wire		I2C_SDA_OE;
+	output BME_CSN;
+	input BME_IRQ;
+	output BME_MOSI;
+	output BME_SCK;
+	input BME_MISO;
 	
-	assign	I2C_SCL_IN = I2C_SCL;
-	assign 	I2C_SCL = I2C_SCL_OE ? 1'b0 : 1'bz;
-	assign	I2C_SDA_IN = I2C_SDA;
-	assign 	I2C_SDA = I2C_SDA_OE ? 1'b0 : 1'bz;
+	
+
 	
 	nios_system NiosII (
 		.clk_clk(CLOCK_50),
@@ -54,12 +48,10 @@ module final_project (CLOCK_50, KEY, SW, LEDR, LEDG, HEX0, HEX1, SDRAM_ADDR, SDR
 		.sdram_ras_n(SDRAM_RAS_N),
 		.sdram_we_n(SDRAM_WE_N),
 		.sdram_clk_clk(SDRAM_CLK),
-		.i2c_serial_sda_in(I2C_SDA_IN),
-		.i2c_serial_scl_in(I2C_SCL_IN),
-		.i2c_serial_sda_oe(I2C_SDA_OE),
-		.i2c_serial_scl_oe(I2C_SCL_OE),
-		.spi_0_serial_MISO(),
-		.spi_0_serial_MOSI(),
-		.spi_0_serial_SCLK(),
-		.spi_0_serial_SS_n());
+		.bme_csn_export(BME_CSN),
+		.bme_irq_export(BME_IRQ),
+		.bme_miso_export(BME_MISO),
+		.bme_mosi_export(BME_MOSI),
+		.bme_sck_export(BME_SCK),
+	);
 endmodule

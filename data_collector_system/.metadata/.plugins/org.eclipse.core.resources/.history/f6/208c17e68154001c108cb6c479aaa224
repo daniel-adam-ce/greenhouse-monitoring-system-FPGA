@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <io.h>
+#include <math.h>
+#include "system.h"
+#include "altera_avalon_pio_regs.h"
+#include "sys/alt_irq.h"
+
+int direction = 0;
+int64_t seven_seg = 0xFFFFFFFFFFFFFFFF;
+int64_t temp;
+
+void key_int_handler()
+{
+	if((IORD(KEYS_BASE, 0) & 2) == 0){
+		seven_seg = 0xFF24084609082F11;
+		IOWR(SEVEN_SEG_0_BASE, 0, seven_seg & 0xFFFFFFFF);
+		IOWR(SEVEN_SEG_1_BASE, 0, seven_seg >> 32);
+		IOWR(TIMER_0_BASE, 1, 8);
+	}else if((IORD(KEYS_BASE, 0) & 4) == 0){
+		direction = 0;
+		IOWR(TIMER_0_BASE, 3, 250);
+		IOWR(TIMER_0_BASE, 1, 7);
+	}else if((IORD(KEYS_BASE, 0) & 8) == 0){
+		direction = 1;
+		IOWR(TIMER_0_BASE, 3, 250);
+		IOWR(TIMER_0_BASE, 1, 7);
+	}
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(KEYS_BASE + 3, 0x0);
+	return;
+}
+
+void timer_int_handler()
+{
+	if(!direction) {
+		temp = (seven_seg & 0xFF) << 56;
+		seven_seg = ((seven_seg >> 8) & 0x00FFFFFFFFFFFFFF) | temp;
+	}else{
+		temp = (seven_seg & 0xFF00000000000000) >> 56;
+		seven_seg = (seven_seg << 8) | temp;
+	}
+	IOWR(SEVEN_SEG_0_BASE, 0, seven_seg & 0xFFFFFFFF);
+	IOWR(SEVEN_SEG_1_BASE, 0, seven_seg >> 32);
+	IOWR(TIMER_0_BASE, 0, 0);
+	return;
+}
+
+static void pio_init()
+{
+	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(KEYS_BASE, 0xF);
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(KEYS_BASE + 3, 0x0);
+	alt_irq_register(KEYS_IRQ, KEYS_BASE + 3, key_int_handler);
+
+	IOWR(TIMER_0_BASE, 1, 8);
+	alt_irq_register(TIMER_0_IRQ, TIMER_0_BASE, timer_int_handler);
+
+	return;
+}
+
+int main()
+{
+	pio_init();
+
+	IOWR(SEVEN_SEG_0_BASE, 0, 0xFFFFFFFF);
+	IOWR(SEVEN_SEG_1_BASE, 0, 0xFFFFFFFF);
+
+	return 0;
+}

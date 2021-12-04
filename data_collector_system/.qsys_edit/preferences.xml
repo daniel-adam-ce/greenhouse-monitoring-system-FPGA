@@ -12,6 +12,6 @@
   </columns>
  </systemtable>
  <library
-   expandedCategories="Project,Library/Processors and Peripherals,Library/Processors and Peripherals/Peripherals,Library/Interface Protocols,Library/University Program,Library/Basic Functions/On Chip Memory,Library/Interface Protocols/Serial,Library,Library/University Program/Generic IO,Library/Basic Functions,Library/Memory Interfaces and Controllers/Flash,Library/Memory Interfaces and Controllers" />
- <window width="3226" height="1746" x="-13" y="-13" />
+   expandedCategories="Library/Processors and Peripherals,Library/Interface Protocols/PCI Express,Library/Processors and Peripherals/Peripherals,Library/Interface Protocols,Library,Project,Library/Interface Protocols/PCI Express/QSYS Example Designs" />
+ <window width="1920" height="1040" x="0" y="0" />
 </preferences>

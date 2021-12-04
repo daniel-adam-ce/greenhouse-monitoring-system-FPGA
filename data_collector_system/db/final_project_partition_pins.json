@@ -508,6 +508,18 @@
 					"strict" : false
 				},
 				{
+					"name" : "BME_CSN",
+					"strict" : false
+				},
+				{
+					"name" : "BME_MOSI",
+					"strict" : false
+				},
+				{
+					"name" : "BME_SCK",
+					"strict" : false
+				},
+				{
 					"name" : "SDRAM_DQ[0]",
 					"strict" : false
 				},
@@ -636,11 +648,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "I2C_SCL",
-					"strict" : false
-				},
-				{
-					"name" : "I2C_SDA",
+					"name" : "BME_IRQ",
 					"strict" : false
 				},
 				{
@@ -664,6 +672,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "BME_MISO",
+					"strict" : false
+				},
+				{
 					"name" : "SW[16]",
 					"strict" : false
 				},
@@ -676,7 +688,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW[15]",
+					"name" : "SW[7]",
 					"strict" : false
 				},
 				{
@@ -684,7 +696,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW[7]",
+					"name" : "SW[15]",
 					"strict" : false
 				},
 				{
@@ -692,39 +704,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW[27]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[26]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[25]",
+					"name" : "SW[6]",
 					"strict" : false
 				},
 				{
 					"name" : "SW[22]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[21]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[20]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[19]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[18]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[17]",
 					"strict" : false
 				},
 				{
@@ -736,11 +720,27 @@
 					"strict" : false
 				},
 				{
+					"name" : "SW[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[21]",
+					"strict" : false
+				},
+				{
 					"name" : "SW[13]",
 					"strict" : false
 				},
 				{
 					"name" : "SW[29]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[20]",
 					"strict" : false
 				},
 				{
@@ -752,31 +752,19 @@
 					"strict" : false
 				},
 				{
+					"name" : "SW[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[19]",
+					"strict" : false
+				},
+				{
 					"name" : "SW[11]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[10]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[9]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[6]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[5]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[4]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[3]",
+					"name" : "SW[27]",
 					"strict" : false
 				},
 				{
@@ -784,7 +772,31 @@
 					"strict" : false
 				},
 				{
+					"name" : "SW[18]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[10]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[26]",
+					"strict" : false
+				},
+				{
 					"name" : "SW[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[17]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[9]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[25]",
 					"strict" : false
 				},
 				{
