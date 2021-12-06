@@ -520,6 +520,22 @@
 					"strict" : false
 				},
 				{
+					"name" : "NRF_CE",
+					"strict" : false
+				},
+				{
+					"name" : "NRF_CSN",
+					"strict" : false
+				},
+				{
+					"name" : "NRF_MOSI",
+					"strict" : false
+				},
+				{
+					"name" : "NRF_SCK",
+					"strict" : false
+				},
+				{
 					"name" : "SDRAM_DQ[0]",
 					"strict" : false
 				},
@@ -648,6 +664,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "NRF_IRQ",
+					"strict" : false
+				},
+				{
 					"name" : "BME_IRQ",
 					"strict" : false
 				},
@@ -676,6 +696,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "NRF_MISO",
+					"strict" : false
+				},
+				{
 					"name" : "SW[16]",
 					"strict" : false
 				},
@@ -685,54 +709,6 @@
 				},
 				{
 					"name" : "SW[24]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[7]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[23]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[15]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[31]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[6]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[22]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[14]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[30]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[5]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[21]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[13]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[29]",
 					"strict" : false
 				},
 				{
@@ -797,6 +773,54 @@
 				},
 				{
 					"name" : "SW[25]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[21]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[13]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[29]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[15]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[23]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[31]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[22]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[14]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[30]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[6]",
 					"strict" : false
 				},
 				{

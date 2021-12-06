@@ -21,7 +21,7 @@
    {
       datum baseAddress
       {
-         value = "8288";
+         value = "8384";
          type = "String";
       }
    }
@@ -37,7 +37,7 @@
    {
       datum baseAddress
       {
-         value = "8224";
+         value = "8320";
          type = "String";
       }
    }
@@ -53,7 +53,7 @@
    {
       datum baseAddress
       {
-         value = "8240";
+         value = "8336";
          type = "String";
       }
    }
@@ -69,7 +69,7 @@
    {
       datum baseAddress
       {
-         value = "8256";
+         value = "8352";
          type = "String";
       }
    }
@@ -85,7 +85,7 @@
    {
       datum baseAddress
       {
-         value = "8272";
+         value = "8368";
          type = "String";
       }
    }
@@ -101,7 +101,7 @@
    {
       datum baseAddress
       {
-         value = "8408";
+         value = "8504";
          type = "String";
       }
    }
@@ -117,7 +117,7 @@
    {
       datum baseAddress
       {
-         value = "8320";
+         value = "8416";
          type = "String";
       }
    }
@@ -133,7 +133,7 @@
    {
       datum baseAddress
       {
-         value = "8304";
+         value = "8400";
          type = "String";
       }
    }
@@ -149,7 +149,7 @@
    {
       datum baseAddress
       {
-         value = "8368";
+         value = "8464";
          type = "String";
       }
    }
@@ -190,6 +190,102 @@
          type = "String";
       }
    }
+   element nrf_ce
+   {
+      datum _sortIndex
+      {
+         value = "22";
+         type = "int";
+      }
+   }
+   element nrf_ce.s1
+   {
+      datum baseAddress
+      {
+         value = "8240";
+         type = "String";
+      }
+   }
+   element nrf_csn
+   {
+      datum _sortIndex
+      {
+         value = "18";
+         type = "int";
+      }
+   }
+   element nrf_csn.s1
+   {
+      datum baseAddress
+      {
+         value = "8304";
+         type = "String";
+      }
+   }
+   element nrf_irq
+   {
+      datum _sortIndex
+      {
+         value = "23";
+         type = "int";
+      }
+   }
+   element nrf_irq.s1
+   {
+      datum baseAddress
+      {
+         value = "8224";
+         type = "String";
+      }
+   }
+   element nrf_miso
+   {
+      datum _sortIndex
+      {
+         value = "21";
+         type = "int";
+      }
+   }
+   element nrf_miso.s1
+   {
+      datum baseAddress
+      {
+         value = "8256";
+         type = "String";
+      }
+   }
+   element nrf_mosi
+   {
+      datum _sortIndex
+      {
+         value = "20";
+         type = "int";
+      }
+   }
+   element nrf_mosi.s1
+   {
+      datum baseAddress
+      {
+         value = "8272";
+         type = "String";
+      }
+   }
+   element nrf_sck
+   {
+      datum _sortIndex
+      {
+         value = "19";
+         type = "int";
+      }
+   }
+   element nrf_sck.s1
+   {
+      datum baseAddress
+      {
+         value = "8288";
+         type = "String";
+      }
+   }
    element onchip_memory2_0
    {
       datum _sortIndex
@@ -218,7 +314,7 @@
    {
       datum baseAddress
       {
-         value = "8352";
+         value = "8448";
          type = "String";
       }
    }
@@ -234,7 +330,7 @@
    {
       datum baseAddress
       {
-         value = "8336";
+         value = "8432";
          type = "String";
       }
    }
@@ -250,7 +346,7 @@
    {
       datum baseAddress
       {
-         value = "8384";
+         value = "8480";
          type = "String";
       }
    }
@@ -274,7 +370,7 @@
    {
       datum baseAddress
       {
-         value = "8400";
+         value = "8496";
          type = "String";
       }
    }
@@ -354,6 +450,36 @@
  <interface
    name="leds_r"
    internal="leds_r.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="nrf_ce"
+   internal="nrf_ce.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="nrf_csn"
+   internal="nrf_csn.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="nrf_irq"
+   internal="nrf_irq.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="nrf_miso"
+   internal="nrf_miso.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="nrf_mosi"
+   internal="nrf_mosi.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="nrf_sck"
+   internal="nrf_sck.external_connection"
    type="conduit"
    dir="end" />
  <interface
@@ -570,7 +696,7 @@
   <parameter name="dataAddrWidth" value="28" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x0' end='0x1000' type='altera_avalon_onchip_memory2.s1' /><slave name='nios2_gen2_0.debug_mem_slave' start='0x1800' end='0x2000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='timer_0.s1' start='0x2000' end='0x2020' type='altera_avalon_timer.s1' /><slave name='bme_irq.s1' start='0x2020' end='0x2030' type='altera_avalon_pio.s1' /><slave name='bme_miso.s1' start='0x2030' end='0x2040' type='altera_avalon_pio.s1' /><slave name='bme_mosi.s1' start='0x2040' end='0x2050' type='altera_avalon_pio.s1' /><slave name='bme_sck.s1' start='0x2050' end='0x2060' type='altera_avalon_pio.s1' /><slave name='bme_csn.s1' start='0x2060' end='0x2070' type='altera_avalon_pio.s1' /><slave name='leds_g.s1' start='0x2070' end='0x2080' type='altera_avalon_pio.s1' /><slave name='keys.s1' start='0x2080' end='0x2090' type='altera_avalon_pio.s1' /><slave name='seven_seg_1.s1' start='0x2090' end='0x20A0' type='altera_avalon_pio.s1' /><slave name='seven_seg_0.s1' start='0x20A0' end='0x20B0' type='altera_avalon_pio.s1' /><slave name='leds_r.s1' start='0x20B0' end='0x20C0' type='altera_avalon_pio.s1' /><slave name='switches.s1' start='0x20C0' end='0x20D0' type='altera_avalon_pio.s1' /><slave name='sysid_qsys_0.control_slave' start='0x20D0' end='0x20D8' type='altera_avalon_sysid_qsys.control_slave' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x20D8' end='0x20E0' type='altera_avalon_jtag_uart.avalon_jtag_slave' /><slave name='new_sdram_controller_0.s1' start='0x8000000' end='0x9000000' type='altera_avalon_new_sdram_controller.s1' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x0' end='0x1000' type='altera_avalon_onchip_memory2.s1' /><slave name='nios2_gen2_0.debug_mem_slave' start='0x1800' end='0x2000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='timer_0.s1' start='0x2000' end='0x2020' type='altera_avalon_timer.s1' /><slave name='nrf_irq.s1' start='0x2020' end='0x2030' type='altera_avalon_pio.s1' /><slave name='nrf_ce.s1' start='0x2030' end='0x2040' type='altera_avalon_pio.s1' /><slave name='nrf_miso.s1' start='0x2040' end='0x2050' type='altera_avalon_pio.s1' /><slave name='nrf_mosi.s1' start='0x2050' end='0x2060' type='altera_avalon_pio.s1' /><slave name='nrf_sck.s1' start='0x2060' end='0x2070' type='altera_avalon_pio.s1' /><slave name='nrf_csn.s1' start='0x2070' end='0x2080' type='altera_avalon_pio.s1' /><slave name='bme_irq.s1' start='0x2080' end='0x2090' type='altera_avalon_pio.s1' /><slave name='bme_miso.s1' start='0x2090' end='0x20A0' type='altera_avalon_pio.s1' /><slave name='bme_mosi.s1' start='0x20A0' end='0x20B0' type='altera_avalon_pio.s1' /><slave name='bme_sck.s1' start='0x20B0' end='0x20C0' type='altera_avalon_pio.s1' /><slave name='bme_csn.s1' start='0x20C0' end='0x20D0' type='altera_avalon_pio.s1' /><slave name='leds_g.s1' start='0x20D0' end='0x20E0' type='altera_avalon_pio.s1' /><slave name='keys.s1' start='0x20E0' end='0x20F0' type='altera_avalon_pio.s1' /><slave name='seven_seg_1.s1' start='0x20F0' end='0x2100' type='altera_avalon_pio.s1' /><slave name='seven_seg_0.s1' start='0x2100' end='0x2110' type='altera_avalon_pio.s1' /><slave name='leds_r.s1' start='0x2110' end='0x2120' type='altera_avalon_pio.s1' /><slave name='switches.s1' start='0x2120' end='0x2130' type='altera_avalon_pio.s1' /><slave name='sysid_qsys_0.control_slave' start='0x2130' end='0x2138' type='altera_avalon_sysid_qsys.control_slave' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x2138' end='0x2140' type='altera_avalon_jtag_uart.avalon_jtag_slave' /><slave name='new_sdram_controller_0.s1' start='0x8000000' end='0x9000000' type='altera_avalon_new_sdram_controller.s1' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -616,7 +742,7 @@
   <parameter name="instruction_master_high_performance_paddr_size" value="0" />
   <parameter name="instruction_master_paddr_base" value="0" />
   <parameter name="instruction_master_paddr_size" value="0" />
-  <parameter name="internalIrqMaskSystemInfo" value="15" />
+  <parameter name="internalIrqMaskSystemInfo" value="31" />
   <parameter name="io_regionbase" value="0" />
   <parameter name="io_regionsize" value="0" />
   <parameter name="master_addr_map" value="false" />
@@ -727,6 +853,90 @@
   <parameter name="tmr_enabled" value="false" />
   <parameter name="tracefilename" value="" />
   <parameter name="userDefinedSettings" value="" />
+ </module>
+ <module name="nrf_ce" kind="altera_avalon_pio" version="16.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="1" />
+ </module>
+ <module name="nrf_csn" kind="altera_avalon_pio" version="16.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="1" />
+ </module>
+ <module name="nrf_irq" kind="altera_avalon_pio" version="16.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="true" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="1" />
+ </module>
+ <module name="nrf_miso" kind="altera_avalon_pio" version="16.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="1" />
+ </module>
+ <module name="nrf_mosi" kind="altera_avalon_pio" version="16.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="1" />
+ </module>
+ <module name="nrf_sck" kind="altera_avalon_pio" version="16.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="1" />
  </module>
  <module
    name="onchip_memory2_0"
@@ -851,7 +1061,7 @@
    start="nios2_gen2_0.data_master"
    end="jtag_uart_0.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x20d8" />
+  <parameter name="baseAddress" value="0x2138" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -860,7 +1070,7 @@
    start="nios2_gen2_0.data_master"
    end="sysid_qsys_0.control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x20d0" />
+  <parameter name="baseAddress" value="0x2130" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -896,7 +1106,7 @@
    start="nios2_gen2_0.data_master"
    end="switches.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x20c0" />
+  <parameter name="baseAddress" value="0x2120" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -905,7 +1115,7 @@
    start="nios2_gen2_0.data_master"
    end="leds_r.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x20b0" />
+  <parameter name="baseAddress" value="0x2110" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -914,7 +1124,7 @@
    start="nios2_gen2_0.data_master"
    end="seven_seg_0.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x20a0" />
+  <parameter name="baseAddress" value="0x2100" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -923,7 +1133,7 @@
    start="nios2_gen2_0.data_master"
    end="seven_seg_1.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2090" />
+  <parameter name="baseAddress" value="0x20f0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -941,7 +1151,7 @@
    start="nios2_gen2_0.data_master"
    end="keys.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2080" />
+  <parameter name="baseAddress" value="0x20e0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -950,7 +1160,7 @@
    start="nios2_gen2_0.data_master"
    end="leds_g.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2070" />
+  <parameter name="baseAddress" value="0x20d0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -959,7 +1169,7 @@
    start="nios2_gen2_0.data_master"
    end="bme_csn.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2060" />
+  <parameter name="baseAddress" value="0x20c0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -968,7 +1178,7 @@
    start="nios2_gen2_0.data_master"
    end="bme_sck.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2050" />
+  <parameter name="baseAddress" value="0x20b0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -977,7 +1187,7 @@
    start="nios2_gen2_0.data_master"
    end="bme_mosi.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2040" />
+  <parameter name="baseAddress" value="0x20a0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -986,7 +1196,7 @@
    start="nios2_gen2_0.data_master"
    end="bme_miso.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2030" />
+  <parameter name="baseAddress" value="0x2090" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -994,6 +1204,60 @@
    version="16.1"
    start="nios2_gen2_0.data_master"
    end="bme_irq.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x2080" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="16.1"
+   start="nios2_gen2_0.data_master"
+   end="nrf_csn.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x2070" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="16.1"
+   start="nios2_gen2_0.data_master"
+   end="nrf_sck.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x2060" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="16.1"
+   start="nios2_gen2_0.data_master"
+   end="nrf_mosi.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x2050" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="16.1"
+   start="nios2_gen2_0.data_master"
+   end="nrf_miso.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x2040" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="16.1"
+   start="nios2_gen2_0.data_master"
+   end="nrf_ce.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x2030" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="16.1"
+   start="nios2_gen2_0.data_master"
+   end="nrf_irq.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x2020" />
   <parameter name="defaultConnection" value="false" />
@@ -1109,6 +1373,36 @@
    kind="clock"
    version="16.1"
    start="sys_sdram_pll_0.sys_clk"
+   end="nrf_csn.clk" />
+ <connection
+   kind="clock"
+   version="16.1"
+   start="sys_sdram_pll_0.sys_clk"
+   end="nrf_sck.clk" />
+ <connection
+   kind="clock"
+   version="16.1"
+   start="sys_sdram_pll_0.sys_clk"
+   end="nrf_mosi.clk" />
+ <connection
+   kind="clock"
+   version="16.1"
+   start="sys_sdram_pll_0.sys_clk"
+   end="nrf_miso.clk" />
+ <connection
+   kind="clock"
+   version="16.1"
+   start="sys_sdram_pll_0.sys_clk"
+   end="nrf_ce.clk" />
+ <connection
+   kind="clock"
+   version="16.1"
+   start="sys_sdram_pll_0.sys_clk"
+   end="nrf_irq.clk" />
+ <connection
+   kind="clock"
+   version="16.1"
+   start="sys_sdram_pll_0.sys_clk"
    end="onchip_memory2_0.clk1" />
  <connection
    kind="interrupt"
@@ -1137,6 +1431,13 @@
    start="nios2_gen2_0.irq"
    end="bme_irq.irq">
   <parameter name="irqNumber" value="3" />
+ </connection>
+ <connection
+   kind="interrupt"
+   version="16.1"
+   start="nios2_gen2_0.irq"
+   end="nrf_irq.irq">
+  <parameter name="irqNumber" value="4" />
  </connection>
  <connection
    kind="reset"
@@ -1218,6 +1519,36 @@
    version="16.1"
    start="nios2_gen2_0.debug_reset_request"
    end="bme_irq.reset" />
+ <connection
+   kind="reset"
+   version="16.1"
+   start="nios2_gen2_0.debug_reset_request"
+   end="nrf_csn.reset" />
+ <connection
+   kind="reset"
+   version="16.1"
+   start="nios2_gen2_0.debug_reset_request"
+   end="nrf_sck.reset" />
+ <connection
+   kind="reset"
+   version="16.1"
+   start="nios2_gen2_0.debug_reset_request"
+   end="nrf_mosi.reset" />
+ <connection
+   kind="reset"
+   version="16.1"
+   start="nios2_gen2_0.debug_reset_request"
+   end="nrf_miso.reset" />
+ <connection
+   kind="reset"
+   version="16.1"
+   start="nios2_gen2_0.debug_reset_request"
+   end="nrf_ce.reset" />
+ <connection
+   kind="reset"
+   version="16.1"
+   start="nios2_gen2_0.debug_reset_request"
+   end="nrf_irq.reset" />
  <connection
    kind="reset"
    version="16.1"

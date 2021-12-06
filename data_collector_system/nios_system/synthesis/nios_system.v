@@ -13,6 +13,12 @@ module nios_system (
 		input  wire [3:0]  keys_export,        //        keys.export
 		output wire [7:0]  leds_g_export,      //      leds_g.export
 		output wire [31:0] leds_r_export,      //      leds_r.export
+		output wire        nrf_ce_export,      //      nrf_ce.export
+		output wire        nrf_csn_export,     //     nrf_csn.export
+		input  wire        nrf_irq_export,     //     nrf_irq.export
+		input  wire        nrf_miso_export,    //    nrf_miso.export
+		output wire        nrf_mosi_export,    //    nrf_mosi.export
+		output wire        nrf_sck_export,     //     nrf_sck.export
 		input  wire        reset_reset,        //       reset.reset
 		output wire [11:0] sdram_addr,         //       sdram.addr
 		output wire [1:0]  sdram_ba,           //            .ba
@@ -29,7 +35,7 @@ module nios_system (
 		input  wire [31:0] switches_export     //    switches.export
 	);
 
-	wire         sys_sdram_pll_0_sys_clk_clk;                                 // sys_sdram_pll_0:sys_clk_clk -> [bme_csn:clk, bme_irq:clk, bme_miso:clk, bme_mosi:clk, bme_sck:clk, irq_mapper:clk, jtag_uart_0:clk, keys:clk, leds_g:clk, leds_r:clk, mm_interconnect_0:sys_sdram_pll_0_sys_clk_clk, new_sdram_controller_0:clk, nios2_gen2_0:clk, onchip_memory2_0:clk, rst_controller:clk, seven_seg_0:clk, seven_seg_1:clk, switches:clk, sysid_qsys_0:clock, timer_0:clk]
+	wire         sys_sdram_pll_0_sys_clk_clk;                                 // sys_sdram_pll_0:sys_clk_clk -> [bme_csn:clk, bme_irq:clk, bme_miso:clk, bme_mosi:clk, bme_sck:clk, irq_mapper:clk, jtag_uart_0:clk, keys:clk, leds_g:clk, leds_r:clk, mm_interconnect_0:sys_sdram_pll_0_sys_clk_clk, new_sdram_controller_0:clk, nios2_gen2_0:clk, nrf_ce:clk, nrf_csn:clk, nrf_irq:clk, nrf_miso:clk, nrf_mosi:clk, nrf_sck:clk, onchip_memory2_0:clk, rst_controller:clk, seven_seg_0:clk, seven_seg_1:clk, switches:clk, sysid_qsys_0:clock, timer_0:clk]
 	wire  [31:0] nios2_gen2_0_data_master_readdata;                           // mm_interconnect_0:nios2_gen2_0_data_master_readdata -> nios2_gen2_0:d_readdata
 	wire         nios2_gen2_0_data_master_waitrequest;                        // mm_interconnect_0:nios2_gen2_0_data_master_waitrequest -> nios2_gen2_0:d_waitrequest
 	wire         nios2_gen2_0_data_master_debugaccess;                        // nios2_gen2_0:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_0:nios2_gen2_0_data_master_debugaccess
@@ -131,12 +137,40 @@ module nios_system (
 	wire   [1:0] mm_interconnect_0_bme_irq_s1_address;                        // mm_interconnect_0:bme_irq_s1_address -> bme_irq:address
 	wire         mm_interconnect_0_bme_irq_s1_write;                          // mm_interconnect_0:bme_irq_s1_write -> bme_irq:write_n
 	wire  [31:0] mm_interconnect_0_bme_irq_s1_writedata;                      // mm_interconnect_0:bme_irq_s1_writedata -> bme_irq:writedata
+	wire         mm_interconnect_0_nrf_csn_s1_chipselect;                     // mm_interconnect_0:nrf_csn_s1_chipselect -> nrf_csn:chipselect
+	wire  [31:0] mm_interconnect_0_nrf_csn_s1_readdata;                       // nrf_csn:readdata -> mm_interconnect_0:nrf_csn_s1_readdata
+	wire   [1:0] mm_interconnect_0_nrf_csn_s1_address;                        // mm_interconnect_0:nrf_csn_s1_address -> nrf_csn:address
+	wire         mm_interconnect_0_nrf_csn_s1_write;                          // mm_interconnect_0:nrf_csn_s1_write -> nrf_csn:write_n
+	wire  [31:0] mm_interconnect_0_nrf_csn_s1_writedata;                      // mm_interconnect_0:nrf_csn_s1_writedata -> nrf_csn:writedata
+	wire         mm_interconnect_0_nrf_sck_s1_chipselect;                     // mm_interconnect_0:nrf_sck_s1_chipselect -> nrf_sck:chipselect
+	wire  [31:0] mm_interconnect_0_nrf_sck_s1_readdata;                       // nrf_sck:readdata -> mm_interconnect_0:nrf_sck_s1_readdata
+	wire   [1:0] mm_interconnect_0_nrf_sck_s1_address;                        // mm_interconnect_0:nrf_sck_s1_address -> nrf_sck:address
+	wire         mm_interconnect_0_nrf_sck_s1_write;                          // mm_interconnect_0:nrf_sck_s1_write -> nrf_sck:write_n
+	wire  [31:0] mm_interconnect_0_nrf_sck_s1_writedata;                      // mm_interconnect_0:nrf_sck_s1_writedata -> nrf_sck:writedata
+	wire         mm_interconnect_0_nrf_mosi_s1_chipselect;                    // mm_interconnect_0:nrf_mosi_s1_chipselect -> nrf_mosi:chipselect
+	wire  [31:0] mm_interconnect_0_nrf_mosi_s1_readdata;                      // nrf_mosi:readdata -> mm_interconnect_0:nrf_mosi_s1_readdata
+	wire   [1:0] mm_interconnect_0_nrf_mosi_s1_address;                       // mm_interconnect_0:nrf_mosi_s1_address -> nrf_mosi:address
+	wire         mm_interconnect_0_nrf_mosi_s1_write;                         // mm_interconnect_0:nrf_mosi_s1_write -> nrf_mosi:write_n
+	wire  [31:0] mm_interconnect_0_nrf_mosi_s1_writedata;                     // mm_interconnect_0:nrf_mosi_s1_writedata -> nrf_mosi:writedata
+	wire  [31:0] mm_interconnect_0_nrf_miso_s1_readdata;                      // nrf_miso:readdata -> mm_interconnect_0:nrf_miso_s1_readdata
+	wire   [1:0] mm_interconnect_0_nrf_miso_s1_address;                       // mm_interconnect_0:nrf_miso_s1_address -> nrf_miso:address
+	wire         mm_interconnect_0_nrf_ce_s1_chipselect;                      // mm_interconnect_0:nrf_ce_s1_chipselect -> nrf_ce:chipselect
+	wire  [31:0] mm_interconnect_0_nrf_ce_s1_readdata;                        // nrf_ce:readdata -> mm_interconnect_0:nrf_ce_s1_readdata
+	wire   [1:0] mm_interconnect_0_nrf_ce_s1_address;                         // mm_interconnect_0:nrf_ce_s1_address -> nrf_ce:address
+	wire         mm_interconnect_0_nrf_ce_s1_write;                           // mm_interconnect_0:nrf_ce_s1_write -> nrf_ce:write_n
+	wire  [31:0] mm_interconnect_0_nrf_ce_s1_writedata;                       // mm_interconnect_0:nrf_ce_s1_writedata -> nrf_ce:writedata
+	wire         mm_interconnect_0_nrf_irq_s1_chipselect;                     // mm_interconnect_0:nrf_irq_s1_chipselect -> nrf_irq:chipselect
+	wire  [31:0] mm_interconnect_0_nrf_irq_s1_readdata;                       // nrf_irq:readdata -> mm_interconnect_0:nrf_irq_s1_readdata
+	wire   [1:0] mm_interconnect_0_nrf_irq_s1_address;                        // mm_interconnect_0:nrf_irq_s1_address -> nrf_irq:address
+	wire         mm_interconnect_0_nrf_irq_s1_write;                          // mm_interconnect_0:nrf_irq_s1_write -> nrf_irq:write_n
+	wire  [31:0] mm_interconnect_0_nrf_irq_s1_writedata;                      // mm_interconnect_0:nrf_irq_s1_writedata -> nrf_irq:writedata
 	wire         irq_mapper_receiver0_irq;                                    // jtag_uart_0:av_irq -> irq_mapper:receiver0_irq
 	wire         irq_mapper_receiver1_irq;                                    // timer_0:irq -> irq_mapper:receiver1_irq
 	wire         irq_mapper_receiver2_irq;                                    // keys:irq -> irq_mapper:receiver2_irq
 	wire         irq_mapper_receiver3_irq;                                    // bme_irq:irq -> irq_mapper:receiver3_irq
+	wire         irq_mapper_receiver4_irq;                                    // nrf_irq:irq -> irq_mapper:receiver4_irq
 	wire  [31:0] nios2_gen2_0_irq_irq;                                        // irq_mapper:sender_irq -> nios2_gen2_0:irq
-	wire         rst_controller_reset_out_reset;                              // rst_controller:reset_out -> [bme_csn:reset_n, bme_irq:reset_n, bme_miso:reset_n, bme_mosi:reset_n, bme_sck:reset_n, irq_mapper:reset, jtag_uart_0:rst_n, keys:reset_n, leds_g:reset_n, leds_r:reset_n, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, new_sdram_controller_0:reset_n, nios2_gen2_0:reset_n, onchip_memory2_0:reset, rst_translator:in_reset, seven_seg_0:reset_n, seven_seg_1:reset_n, switches:reset_n, sysid_qsys_0:reset_n, timer_0:reset_n]
+	wire         rst_controller_reset_out_reset;                              // rst_controller:reset_out -> [bme_csn:reset_n, bme_irq:reset_n, bme_miso:reset_n, bme_mosi:reset_n, bme_sck:reset_n, irq_mapper:reset, jtag_uart_0:rst_n, keys:reset_n, leds_g:reset_n, leds_r:reset_n, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, new_sdram_controller_0:reset_n, nios2_gen2_0:reset_n, nrf_ce:reset_n, nrf_csn:reset_n, nrf_irq:reset_n, nrf_miso:reset_n, nrf_mosi:reset_n, nrf_sck:reset_n, onchip_memory2_0:reset, rst_translator:in_reset, seven_seg_0:reset_n, seven_seg_1:reset_n, switches:reset_n, sysid_qsys_0:reset_n, timer_0:reset_n]
 	wire         rst_controller_reset_out_reset_req;                          // rst_controller:reset_req -> [nios2_gen2_0:reset_req, onchip_memory2_0:reset_req, rst_translator:reset_req_in]
 	wire         nios2_gen2_0_debug_reset_request_reset;                      // nios2_gen2_0:debug_reset_request -> rst_controller:reset_in0
 
@@ -294,6 +328,70 @@ module nios_system (
 		.dummy_ci_port                       ()                                                            // custom_instruction_master.readra
 	);
 
+	nios_system_bme_csn nrf_ce (
+		.clk        (sys_sdram_pll_0_sys_clk_clk),            //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),        //               reset.reset_n
+		.address    (mm_interconnect_0_nrf_ce_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_nrf_ce_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_nrf_ce_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_nrf_ce_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_nrf_ce_s1_readdata),   //                    .readdata
+		.out_port   (nrf_ce_export)                           // external_connection.export
+	);
+
+	nios_system_bme_csn nrf_csn (
+		.clk        (sys_sdram_pll_0_sys_clk_clk),             //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),         //               reset.reset_n
+		.address    (mm_interconnect_0_nrf_csn_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_nrf_csn_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_nrf_csn_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_nrf_csn_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_nrf_csn_s1_readdata),   //                    .readdata
+		.out_port   (nrf_csn_export)                           // external_connection.export
+	);
+
+	nios_system_bme_irq nrf_irq (
+		.clk        (sys_sdram_pll_0_sys_clk_clk),             //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),         //               reset.reset_n
+		.address    (mm_interconnect_0_nrf_irq_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_nrf_irq_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_nrf_irq_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_nrf_irq_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_nrf_irq_s1_readdata),   //                    .readdata
+		.in_port    (nrf_irq_export),                          // external_connection.export
+		.irq        (irq_mapper_receiver4_irq)                 //                 irq.irq
+	);
+
+	nios_system_bme_miso nrf_miso (
+		.clk      (sys_sdram_pll_0_sys_clk_clk),            //                 clk.clk
+		.reset_n  (~rst_controller_reset_out_reset),        //               reset.reset_n
+		.address  (mm_interconnect_0_nrf_miso_s1_address),  //                  s1.address
+		.readdata (mm_interconnect_0_nrf_miso_s1_readdata), //                    .readdata
+		.in_port  (nrf_miso_export)                         // external_connection.export
+	);
+
+	nios_system_bme_csn nrf_mosi (
+		.clk        (sys_sdram_pll_0_sys_clk_clk),              //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),          //               reset.reset_n
+		.address    (mm_interconnect_0_nrf_mosi_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_nrf_mosi_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_nrf_mosi_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_nrf_mosi_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_nrf_mosi_s1_readdata),   //                    .readdata
+		.out_port   (nrf_mosi_export)                           // external_connection.export
+	);
+
+	nios_system_bme_csn nrf_sck (
+		.clk        (sys_sdram_pll_0_sys_clk_clk),             //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),         //               reset.reset_n
+		.address    (mm_interconnect_0_nrf_sck_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_nrf_sck_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_nrf_sck_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_nrf_sck_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_nrf_sck_s1_readdata),   //                    .readdata
+		.out_port   (nrf_sck_export)                           // external_connection.export
+	);
+
 	nios_system_onchip_memory2_0 onchip_memory2_0 (
 		.clk        (sys_sdram_pll_0_sys_clk_clk),                      //   clk1.clk
 		.address    (mm_interconnect_0_onchip_memory2_0_s1_address),    //     s1.address
@@ -442,6 +540,33 @@ module nios_system (
 		.nios2_gen2_0_debug_mem_slave_byteenable        (mm_interconnect_0_nios2_gen2_0_debug_mem_slave_byteenable),   //                                         .byteenable
 		.nios2_gen2_0_debug_mem_slave_waitrequest       (mm_interconnect_0_nios2_gen2_0_debug_mem_slave_waitrequest),  //                                         .waitrequest
 		.nios2_gen2_0_debug_mem_slave_debugaccess       (mm_interconnect_0_nios2_gen2_0_debug_mem_slave_debugaccess),  //                                         .debugaccess
+		.nrf_ce_s1_address                              (mm_interconnect_0_nrf_ce_s1_address),                         //                                nrf_ce_s1.address
+		.nrf_ce_s1_write                                (mm_interconnect_0_nrf_ce_s1_write),                           //                                         .write
+		.nrf_ce_s1_readdata                             (mm_interconnect_0_nrf_ce_s1_readdata),                        //                                         .readdata
+		.nrf_ce_s1_writedata                            (mm_interconnect_0_nrf_ce_s1_writedata),                       //                                         .writedata
+		.nrf_ce_s1_chipselect                           (mm_interconnect_0_nrf_ce_s1_chipselect),                      //                                         .chipselect
+		.nrf_csn_s1_address                             (mm_interconnect_0_nrf_csn_s1_address),                        //                               nrf_csn_s1.address
+		.nrf_csn_s1_write                               (mm_interconnect_0_nrf_csn_s1_write),                          //                                         .write
+		.nrf_csn_s1_readdata                            (mm_interconnect_0_nrf_csn_s1_readdata),                       //                                         .readdata
+		.nrf_csn_s1_writedata                           (mm_interconnect_0_nrf_csn_s1_writedata),                      //                                         .writedata
+		.nrf_csn_s1_chipselect                          (mm_interconnect_0_nrf_csn_s1_chipselect),                     //                                         .chipselect
+		.nrf_irq_s1_address                             (mm_interconnect_0_nrf_irq_s1_address),                        //                               nrf_irq_s1.address
+		.nrf_irq_s1_write                               (mm_interconnect_0_nrf_irq_s1_write),                          //                                         .write
+		.nrf_irq_s1_readdata                            (mm_interconnect_0_nrf_irq_s1_readdata),                       //                                         .readdata
+		.nrf_irq_s1_writedata                           (mm_interconnect_0_nrf_irq_s1_writedata),                      //                                         .writedata
+		.nrf_irq_s1_chipselect                          (mm_interconnect_0_nrf_irq_s1_chipselect),                     //                                         .chipselect
+		.nrf_miso_s1_address                            (mm_interconnect_0_nrf_miso_s1_address),                       //                              nrf_miso_s1.address
+		.nrf_miso_s1_readdata                           (mm_interconnect_0_nrf_miso_s1_readdata),                      //                                         .readdata
+		.nrf_mosi_s1_address                            (mm_interconnect_0_nrf_mosi_s1_address),                       //                              nrf_mosi_s1.address
+		.nrf_mosi_s1_write                              (mm_interconnect_0_nrf_mosi_s1_write),                         //                                         .write
+		.nrf_mosi_s1_readdata                           (mm_interconnect_0_nrf_mosi_s1_readdata),                      //                                         .readdata
+		.nrf_mosi_s1_writedata                          (mm_interconnect_0_nrf_mosi_s1_writedata),                     //                                         .writedata
+		.nrf_mosi_s1_chipselect                         (mm_interconnect_0_nrf_mosi_s1_chipselect),                    //                                         .chipselect
+		.nrf_sck_s1_address                             (mm_interconnect_0_nrf_sck_s1_address),                        //                               nrf_sck_s1.address
+		.nrf_sck_s1_write                               (mm_interconnect_0_nrf_sck_s1_write),                          //                                         .write
+		.nrf_sck_s1_readdata                            (mm_interconnect_0_nrf_sck_s1_readdata),                       //                                         .readdata
+		.nrf_sck_s1_writedata                           (mm_interconnect_0_nrf_sck_s1_writedata),                      //                                         .writedata
+		.nrf_sck_s1_chipselect                          (mm_interconnect_0_nrf_sck_s1_chipselect),                     //                                         .chipselect
 		.onchip_memory2_0_s1_address                    (mm_interconnect_0_onchip_memory2_0_s1_address),               //                      onchip_memory2_0_s1.address
 		.onchip_memory2_0_s1_write                      (mm_interconnect_0_onchip_memory2_0_s1_write),                 //                                         .write
 		.onchip_memory2_0_s1_readdata                   (mm_interconnect_0_onchip_memory2_0_s1_readdata),              //                                         .readdata
@@ -477,6 +602,7 @@ module nios_system (
 		.receiver1_irq (irq_mapper_receiver1_irq),       // receiver1.irq
 		.receiver2_irq (irq_mapper_receiver2_irq),       // receiver2.irq
 		.receiver3_irq (irq_mapper_receiver3_irq),       // receiver3.irq
+		.receiver4_irq (irq_mapper_receiver4_irq),       // receiver4.irq
 		.sender_irq    (nios2_gen2_0_irq_irq)            //    sender.irq
 	);
 

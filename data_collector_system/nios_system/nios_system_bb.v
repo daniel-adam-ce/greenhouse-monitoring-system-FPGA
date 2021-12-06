@@ -1,5 +1,10 @@
 
 module nios_system (
+	bme_csn_export,
+	bme_irq_export,
+	bme_miso_export,
+	bme_mosi_export,
+	bme_sck_export,
 	clk_clk,
 	keys_export,
 	leds_g_export,
@@ -18,12 +23,18 @@ module nios_system (
 	seven_seg_0_export,
 	seven_seg_1_export,
 	switches_export,
-	bme_csn_export,
-	bme_sck_export,
-	bme_mosi_export,
-	bme_miso_export,
-	bme_irq_export);	
+	nrf_csn_export,
+	nrf_sck_export,
+	nrf_mosi_export,
+	nrf_miso_export,
+	nrf_ce_export,
+	nrf_irq_export);	
 
+	output		bme_csn_export;
+	input		bme_irq_export;
+	input		bme_miso_export;
+	output		bme_mosi_export;
+	output		bme_sck_export;
 	input		clk_clk;
 	input	[3:0]	keys_export;
 	output	[7:0]	leds_g_export;
@@ -42,9 +53,10 @@ module nios_system (
 	output	[31:0]	seven_seg_0_export;
 	output	[31:0]	seven_seg_1_export;
 	input	[31:0]	switches_export;
-	output		bme_csn_export;
-	output		bme_sck_export;
-	output		bme_mosi_export;
-	input		bme_miso_export;
-	input		bme_irq_export;
+	output		nrf_csn_export;
+	output		nrf_sck_export;
+	output		nrf_mosi_export;
+	input		nrf_miso_export;
+	output		nrf_ce_export;
+	input		nrf_irq_export;
 endmodule

@@ -1,6 +1,7 @@
 module final_project (CLOCK_50, KEY, SW, LEDR, LEDG, HEX0, HEX1, SDRAM_ADDR, SDRAM_BA, SDRAM_CAS_N, 
 							SDRAM_CKE, SDRAM_CS_N, SDRAM_DQ, SDRAM_DQM, SDRAM_RAS_N, SDRAM_WE_N, SDRAM_CLK,
-							BME_CSN, BME_IRQ, BME_MISO, BME_MOSI, BME_SCK
+							BME_CSN, BME_IRQ, BME_MISO, BME_MOSI, BME_SCK, 
+							NRF_CE, NRF_CSN, NRF_IRQ, NRF_MISO, NRF_MOSI, NRF_SCK
 							);
 	input CLOCK_50;
 	input [31:0] SW;
@@ -25,6 +26,13 @@ module final_project (CLOCK_50, KEY, SW, LEDR, LEDG, HEX0, HEX1, SDRAM_ADDR, SDR
 	output BME_MOSI;
 	output BME_SCK;
 	input BME_MISO;
+	
+	output		  NRF_CE;
+	output		  NRF_CSN;
+	input			  NRF_IRQ;
+	input			  NRF_MISO;
+	output		  NRF_MOSI;
+	output		  NRF_SCK;
 	
 	
 
@@ -53,5 +61,11 @@ module final_project (CLOCK_50, KEY, SW, LEDR, LEDG, HEX0, HEX1, SDRAM_ADDR, SDR
 		.bme_miso_export(BME_MISO),
 		.bme_mosi_export(BME_MOSI),
 		.bme_sck_export(BME_SCK),
+		.nrf_ce_export(NRF_CE),
+		.nrf_csn_export(NRF_CSN),
+		.nrf_irq_export(NRF_IRQ),
+		.nrf_miso_export(NRF_MISO),
+		.nrf_mosi_export(NRF_MOSI),
+		.nrf_sck_export(NRF_SCK),
 	);
 endmodule
