@@ -2,6 +2,12 @@
 module nios_system (
 	clk_clk,
 	keys_export,
+	lcd_DATA,
+	lcd_ON,
+	lcd_BLON,
+	lcd_EN,
+	lcd_RS,
+	lcd_RW,
 	leds_g_export,
 	leds_r_export,
 	nrf_ce_export,
@@ -11,6 +17,10 @@ module nios_system (
 	nrf_mosi_export,
 	nrf_sck_export,
 	reset_reset,
+	sd_card_b_SD_cmd,
+	sd_card_b_SD_dat,
+	sd_card_b_SD_dat3,
+	sd_card_o_SD_clock,
 	sdram_addr,
 	sdram_ba,
 	sdram_cas_n,
@@ -27,6 +37,12 @@ module nios_system (
 
 	input		clk_clk;
 	input	[3:0]	keys_export;
+	inout	[7:0]	lcd_DATA;
+	output		lcd_ON;
+	output		lcd_BLON;
+	output		lcd_EN;
+	output		lcd_RS;
+	output		lcd_RW;
 	output	[7:0]	leds_g_export;
 	output	[31:0]	leds_r_export;
 	output		nrf_ce_export;
@@ -36,6 +52,10 @@ module nios_system (
 	output		nrf_mosi_export;
 	output		nrf_sck_export;
 	input		reset_reset;
+	inout		sd_card_b_SD_cmd;
+	inout		sd_card_b_SD_dat;
+	inout		sd_card_b_SD_dat3;
+	output		sd_card_o_SD_clock;
 	output	[11:0]	sdram_addr;
 	output	[1:0]	sdram_ba;
 	output		sdram_cas_n;

@@ -1,7 +1,7 @@
 module final_project (CLOCK_50, KEY, SW, LEDR, LEDG, HEX0, HEX1, SDRAM_ADDR, SDRAM_BA, SDRAM_CAS_N, 
 							SDRAM_CKE, SDRAM_CS_N, SDRAM_DQ, SDRAM_DQM, SDRAM_RAS_N, SDRAM_WE_N, SDRAM_CLK,
-							NRF_CE, NRF_CSN, NRF_IRQ, NRF_MISO, NRF_MOSI, NRF_SCK, /*LCD_RS, LCD_RW, LCD_DATA, 
-							LCD_E, LCD_ON*/);
+							NRF_CE, NRF_CSN, NRF_IRQ, NRF_MISO, NRF_MOSI, NRF_SCK, SD_CMD, SD_DAT, SD_DAT3, 
+							SD_CLK, RESET, LCD_DATA, LCD_ON, LCD_EN, LCD_RS, LCD_RW);
 
 	input CLOCK_50;
 	input [31:0] SW;
@@ -26,15 +26,20 @@ module final_project (CLOCK_50, KEY, SW, LEDR, LEDG, HEX0, HEX1, SDRAM_ADDR, SDR
 	input			  NRF_MISO;
 	output		  NRF_MOSI;
 	output		  NRF_SCK;
-	//output		  LCD_RS;
-	//output		  LCD_RW;
-	//inout	 [7:0]  LCD_DATA;
-	//output		  LCD_E;
-	//output		  LCD_ON;
+	inout			  SD_CMD;
+	inout			  SD_DAT;
+	inout			  SD_DAT3;
+	output		  SD_CLK;
+	input			  RESET;
+	inout	 [7:0]  LCD_DATA;
+	output		  LCD_ON;
+	output		  LCD_EN;
+	output		  LCD_RS;
+	output		  LCD_RW;
 	
 	nios_system NiosII (
 		.clk_clk(CLOCK_50),
-		.reset_reset(),
+		.reset_reset(RESET),
 		.switches_export(SW),
 		.keys_export(KEY),
 		.leds_r_export(LEDR),
@@ -57,11 +62,15 @@ module final_project (CLOCK_50, KEY, SW, LEDR, LEDG, HEX0, HEX1, SDRAM_ADDR, SDR
 		.nrf_miso_export(NRF_MISO),
 		.nrf_mosi_export(NRF_MOSI),
 		.nrf_sck_export(NRF_SCK),
-		/*.character_lcd_DATA(LCD_DATA),
-		.character_lcd_ON(LCD_ON),
-		.character_lcd_BLON(),
-		.character_lcd_EN(LCD_EN),
-		.character_lcd_RS(LCD_RS),
-		.character_lcd_RW(LCD_RW)*/);
+		.sd_card_b_SD_cmd(SD_CMD),
+		.sd_card_b_SD_dat(SD_DAT),
+		.sd_card_b_SD_dat3(SD_DAT3),
+		.sd_card_o_SD_clock(SD_CLK),
+		.lcd_DATA(LCD_DATA),
+		.lcd_ON(LCD_ON),
+		.lcd_BLON(),
+		.lcd_EN(LCD_EN),
+		.lcd_RS(LCD_RS),
+		.lcd_RW(LCD_RW));
 
 endmodule

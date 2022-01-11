@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'nios_system'
  * SOPC Builder design path: ../../nios_system.sopcinfo
  *
- * Generated: Thu Dec 02 03:17:49 PST 2021
+ * Generated: Sun Dec 05 14:13:33 PST 2021
  */
 
 /*
@@ -148,6 +148,8 @@
 #define __ALTERA_AVALON_SYSID_QSYS
 #define __ALTERA_AVALON_TIMER
 #define __ALTERA_NIOS2_GEN2
+#define __ALTERA_UP_AVALON_CHARACTER_LCD
+#define __ALTERA_UP_SD_CARD_AVALON_INTERFACE
 
 
 /*
@@ -166,24 +168,38 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart_0"
-#define ALT_STDERR_BASE 0x20e8
+#define ALT_STDERR_BASE 0x24e8
 #define ALT_STDERR_DEV jtag_uart_0
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart_0"
-#define ALT_STDIN_BASE 0x20e8
+#define ALT_STDIN_BASE 0x24e8
 #define ALT_STDIN_DEV jtag_uart_0
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart_0"
-#define ALT_STDOUT_BASE 0x20e8
+#define ALT_STDOUT_BASE 0x24e8
 #define ALT_STDOUT_DEV jtag_uart_0
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
 #define ALT_STDOUT_TYPE "altera_avalon_jtag_uart"
 #define ALT_SYSTEM_NAME "nios_system"
+
+
+/*
+ * character_lcd configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_character_lcd altera_up_avalon_character_lcd
+#define CHARACTER_LCD_BASE 0x24f0
+#define CHARACTER_LCD_IRQ -1
+#define CHARACTER_LCD_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define CHARACTER_LCD_NAME "/dev/character_lcd"
+#define CHARACTER_LCD_SPAN 2
+#define CHARACTER_LCD_TYPE "altera_up_avalon_character_lcd"
 
 
 /*
@@ -203,7 +219,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart_0 altera_avalon_jtag_uart
-#define JTAG_UART_0_BASE 0x20e8
+#define JTAG_UART_0_BASE 0x24e8
 #define JTAG_UART_0_IRQ 0
 #define JTAG_UART_0_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_0_NAME "/dev/jtag_uart_0"
@@ -221,7 +237,7 @@
  */
 
 #define ALT_MODULE_CLASS_keys altera_avalon_pio
-#define KEYS_BASE 0x2090
+#define KEYS_BASE 0x2490
 #define KEYS_BIT_CLEARING_EDGE_REGISTER 0
 #define KEYS_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define KEYS_CAPTURE 1
@@ -248,7 +264,7 @@
  */
 
 #define ALT_MODULE_CLASS_leds_g altera_avalon_pio
-#define LEDS_G_BASE 0x2080
+#define LEDS_G_BASE 0x2480
 #define LEDS_G_BIT_CLEARING_EDGE_REGISTER 0
 #define LEDS_G_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define LEDS_G_CAPTURE 0
@@ -275,7 +291,7 @@
  */
 
 #define ALT_MODULE_CLASS_leds_r altera_avalon_pio
-#define LEDS_R_BASE 0x20c0
+#define LEDS_R_BASE 0x24c0
 #define LEDS_R_BIT_CLEARING_EDGE_REGISTER 0
 #define LEDS_R_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define LEDS_R_CAPTURE 0
@@ -341,7 +357,7 @@
  */
 
 #define ALT_MODULE_CLASS_nrf_ce altera_avalon_pio
-#define NRF_CE_BASE 0x2020
+#define NRF_CE_BASE 0x2420
 #define NRF_CE_BIT_CLEARING_EDGE_REGISTER 0
 #define NRF_CE_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define NRF_CE_CAPTURE 0
@@ -368,7 +384,7 @@
  */
 
 #define ALT_MODULE_CLASS_nrf_csn altera_avalon_pio
-#define NRF_CSN_BASE 0x2070
+#define NRF_CSN_BASE 0x2470
 #define NRF_CSN_BIT_CLEARING_EDGE_REGISTER 0
 #define NRF_CSN_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define NRF_CSN_CAPTURE 0
@@ -395,21 +411,21 @@
  */
 
 #define ALT_MODULE_CLASS_nrf_irq altera_avalon_pio
-#define NRF_IRQ_BASE 0x2030
+#define NRF_IRQ_BASE 0x2430
 #define NRF_IRQ_BIT_CLEARING_EDGE_REGISTER 0
 #define NRF_IRQ_BIT_MODIFYING_OUTPUT_REGISTER 0
-#define NRF_IRQ_CAPTURE 0
+#define NRF_IRQ_CAPTURE 1
 #define NRF_IRQ_DATA_WIDTH 1
 #define NRF_IRQ_DO_TEST_BENCH_WIRING 0
 #define NRF_IRQ_DRIVEN_SIM_VALUE 0
-#define NRF_IRQ_EDGE_TYPE "NONE"
+#define NRF_IRQ_EDGE_TYPE "FALLING"
 #define NRF_IRQ_FREQ 50000000
 #define NRF_IRQ_HAS_IN 1
 #define NRF_IRQ_HAS_OUT 0
 #define NRF_IRQ_HAS_TRI 0
 #define NRF_IRQ_IRQ 3
 #define NRF_IRQ_IRQ_INTERRUPT_CONTROLLER_ID 0
-#define NRF_IRQ_IRQ_TYPE "LEVEL"
+#define NRF_IRQ_IRQ_TYPE "EDGE"
 #define NRF_IRQ_NAME "/dev/nrf_irq"
 #define NRF_IRQ_RESET_VALUE 0
 #define NRF_IRQ_SPAN 16
@@ -422,7 +438,7 @@
  */
 
 #define ALT_MODULE_CLASS_nrf_miso altera_avalon_pio
-#define NRF_MISO_BASE 0x2040
+#define NRF_MISO_BASE 0x2440
 #define NRF_MISO_BIT_CLEARING_EDGE_REGISTER 0
 #define NRF_MISO_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define NRF_MISO_CAPTURE 0
@@ -449,7 +465,7 @@
  */
 
 #define ALT_MODULE_CLASS_nrf_mosi altera_avalon_pio
-#define NRF_MOSI_BASE 0x2050
+#define NRF_MOSI_BASE 0x2450
 #define NRF_MOSI_BIT_CLEARING_EDGE_REGISTER 0
 #define NRF_MOSI_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define NRF_MOSI_CAPTURE 0
@@ -476,7 +492,7 @@
  */
 
 #define ALT_MODULE_CLASS_nrf_sck altera_avalon_pio
-#define NRF_SCK_BASE 0x2060
+#define NRF_SCK_BASE 0x2460
 #define NRF_SCK_BIT_CLEARING_EDGE_REGISTER 0
 #define NRF_SCK_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define NRF_SCK_CAPTURE 0
@@ -527,12 +543,26 @@
 
 
 /*
+ * sd_card_interface configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_sd_card_interface Altera_UP_SD_Card_Avalon_Interface
+#define SD_CARD_INTERFACE_BASE 0x2000
+#define SD_CARD_INTERFACE_IRQ -1
+#define SD_CARD_INTERFACE_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SD_CARD_INTERFACE_NAME "/dev/sd_card_interface"
+#define SD_CARD_INTERFACE_SPAN 1024
+#define SD_CARD_INTERFACE_TYPE "Altera_UP_SD_Card_Avalon_Interface"
+
+
+/*
  * seven_seg_0 configuration
  *
  */
 
 #define ALT_MODULE_CLASS_seven_seg_0 altera_avalon_pio
-#define SEVEN_SEG_0_BASE 0x20b0
+#define SEVEN_SEG_0_BASE 0x24b0
 #define SEVEN_SEG_0_BIT_CLEARING_EDGE_REGISTER 0
 #define SEVEN_SEG_0_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define SEVEN_SEG_0_CAPTURE 0
@@ -559,7 +589,7 @@
  */
 
 #define ALT_MODULE_CLASS_seven_seg_1 altera_avalon_pio
-#define SEVEN_SEG_1_BASE 0x20a0
+#define SEVEN_SEG_1_BASE 0x24a0
 #define SEVEN_SEG_1_BIT_CLEARING_EDGE_REGISTER 0
 #define SEVEN_SEG_1_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define SEVEN_SEG_1_CAPTURE 0
@@ -586,7 +616,7 @@
  */
 
 #define ALT_MODULE_CLASS_switches altera_avalon_pio
-#define SWITCHES_BASE 0x20d0
+#define SWITCHES_BASE 0x24d0
 #define SWITCHES_BIT_CLEARING_EDGE_REGISTER 0
 #define SWITCHES_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define SWITCHES_CAPTURE 0
@@ -613,13 +643,13 @@
  */
 
 #define ALT_MODULE_CLASS_sysid_qsys_0 altera_avalon_sysid_qsys
-#define SYSID_QSYS_0_BASE 0x20e0
+#define SYSID_QSYS_0_BASE 0x24e0
 #define SYSID_QSYS_0_ID 0
 #define SYSID_QSYS_0_IRQ -1
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1638443431
+#define SYSID_QSYS_0_TIMESTAMP 1638742043
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 
@@ -630,7 +660,7 @@
 
 #define ALT_MODULE_CLASS_timer_0 altera_avalon_timer
 #define TIMER_0_ALWAYS_RUN 0
-#define TIMER_0_BASE 0x2000
+#define TIMER_0_BASE 0x2400
 #define TIMER_0_COUNTER_SIZE 32
 #define TIMER_0_FIXED_PERIOD 0
 #define TIMER_0_FREQ 50000000

@@ -222,4 +222,20 @@ set_location_assignment PIN_AD25 -to NRF_SCK
 set_location_assignment PIN_AE25 -to NRF_CE
 set_location_assignment PIN_AH25 -to NRF_CSN
 set_location_assignment PIN_AF22 -to NRF_IRQ
+set_location_assignment PIN_AE13 -to SD_CLK
+set_location_assignment PIN_AD14 -to SD_CMD
+set_location_assignment PIN_AE14 -to SD_DAT
+set_location_assignment PIN_AC14 -to SD_DAT3
+set_location_assignment PIN_M5 -to LCD_DATA[7]
+set_location_assignment PIN_M3 -to LCD_DATA[6]
+set_location_assignment PIN_K2 -to LCD_DATA[5]
+set_location_assignment PIN_K1 -to LCD_DATA[4]
+set_location_assignment PIN_K7 -to LCD_DATA[3]
+set_location_assignment PIN_L2 -to LCD_DATA[2]
+set_location_assignment PIN_L1 -to LCD_DATA[1]
+set_location_assignment PIN_L3 -to LCD_DATA[0]
+set_location_assignment PIN_L4 -to LCD_EN
+set_location_assignment PIN_L5 -to LCD_ON
+set_location_assignment PIN_M2 -to LCD_RS
+set_location_assignment PIN_M1 -to LCD_RW
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -5,12 +5,12 @@
   <columns>
    <connections preferredWidth="159" />
    <irq preferredWidth="34" />
-   <name preferredWidth="400" />
+   <name preferredWidth="418" />
    <description preferredWidth="478" />
    <export preferredWidth="309" />
    <inputclock preferredWidth="242" />
   </columns>
  </systemtable>
  <library expandedCategories="Library,Project" />
- <window width="1622" height="1731" x="1589" y="0" />
+ <window width="3200" height="1720" x="0" y="0" />
 </preferences>

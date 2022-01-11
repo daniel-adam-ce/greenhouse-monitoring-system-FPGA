@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Dec 2, 2021 3:17:48 AM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1638443868268</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Dec 5, 2021 2:13:32 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1638742412773</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\intelFPGA_lite\16.1\final_project\software\final_project_display_v4_bsp</BspGeneratedLocation>
         <BspSettingsFile>.\settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\nios_system.sopcinfo</SopcDesignFile>
@@ -905,94 +905,106 @@
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>sd_card_interface</slaveDescriptor>
+                <addressRange>0x00002000 - 0x000023FF</addressRange>
+                <addressSpan>1024</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>timer_0</slaveDescriptor>
-                <addressRange>0x00002000 - 0x0000201F</addressRange>
+                <addressRange>0x00002400 - 0x0000241F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>timer</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>nrf_ce</slaveDescriptor>
-                <addressRange>0x00002020 - 0x0000202F</addressRange>
+                <addressRange>0x00002420 - 0x0000242F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>nrf_irq</slaveDescriptor>
-                <addressRange>0x00002030 - 0x0000203F</addressRange>
+                <addressRange>0x00002430 - 0x0000243F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>nrf_miso</slaveDescriptor>
-                <addressRange>0x00002040 - 0x0000204F</addressRange>
+                <addressRange>0x00002440 - 0x0000244F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>nrf_mosi</slaveDescriptor>
-                <addressRange>0x00002050 - 0x0000205F</addressRange>
+                <addressRange>0x00002450 - 0x0000245F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>nrf_sck</slaveDescriptor>
-                <addressRange>0x00002060 - 0x0000206F</addressRange>
+                <addressRange>0x00002460 - 0x0000246F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>nrf_csn</slaveDescriptor>
-                <addressRange>0x00002070 - 0x0000207F</addressRange>
+                <addressRange>0x00002470 - 0x0000247F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>leds_g</slaveDescriptor>
-                <addressRange>0x00002080 - 0x0000208F</addressRange>
+                <addressRange>0x00002480 - 0x0000248F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>keys</slaveDescriptor>
-                <addressRange>0x00002090 - 0x0000209F</addressRange>
+                <addressRange>0x00002490 - 0x0000249F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>seven_seg_1</slaveDescriptor>
-                <addressRange>0x000020A0 - 0x000020AF</addressRange>
+                <addressRange>0x000024A0 - 0x000024AF</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>seven_seg_0</slaveDescriptor>
-                <addressRange>0x000020B0 - 0x000020BF</addressRange>
+                <addressRange>0x000024B0 - 0x000024BF</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>leds_r</slaveDescriptor>
-                <addressRange>0x000020C0 - 0x000020CF</addressRange>
+                <addressRange>0x000024C0 - 0x000024CF</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>switches</slaveDescriptor>
-                <addressRange>0x000020D0 - 0x000020DF</addressRange>
+                <addressRange>0x000024D0 - 0x000024DF</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sysid_qsys_0</slaveDescriptor>
-                <addressRange>0x000020E0 - 0x000020E7</addressRange>
+                <addressRange>0x000024E0 - 0x000024E7</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart_0</slaveDescriptor>
-                <addressRange>0x000020E8 - 0x000020EF</addressRange>
+                <addressRange>0x000024E8 - 0x000024EF</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>character_lcd</slaveDescriptor>
+                <addressRange>0x000024F0 - 0x000024F1</addressRange>
+                <addressSpan>2</addressSpan>
+                <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>new_sdram_controller_0</slaveDescriptor>

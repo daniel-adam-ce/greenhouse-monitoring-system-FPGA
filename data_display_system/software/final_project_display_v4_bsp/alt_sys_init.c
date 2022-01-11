@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'nios_system'
  * SOPC Builder design path: ../../nios_system.sopcinfo
  *
- * Generated: Thu Dec 02 03:17:49 PST 2021
+ * Generated: Sun Dec 05 14:13:33 PST 2021
  */
 
 /*
@@ -59,9 +59,11 @@
  */
 
 #include "altera_nios2_gen2_irq.h"
+#include "Altera_UP_SD_Card_Avalon_Interface.h"
 #include "altera_avalon_jtag_uart.h"
 #include "altera_avalon_sysid_qsys.h"
 #include "altera_avalon_timer.h"
+#include "altera_up_avalon_character_lcd.h"
 
 /*
  * Allocate the device storage
@@ -71,6 +73,8 @@ ALTERA_NIOS2_GEN2_IRQ_INSTANCE ( NIOS2_GEN2_0, nios2_gen2_0);
 ALTERA_AVALON_JTAG_UART_INSTANCE ( JTAG_UART_0, jtag_uart_0);
 ALTERA_AVALON_SYSID_QSYS_INSTANCE ( SYSID_QSYS_0, sysid_qsys_0);
 ALTERA_AVALON_TIMER_INSTANCE ( TIMER_0, timer_0);
+ALTERA_UP_AVALON_CHARACTER_LCD_INSTANCE ( CHARACTER_LCD, character_lcd);
+ALTERA_UP_SD_CARD_AVALON_INTERFACE_INSTANCE ( SD_CARD_INTERFACE, sd_card_interface);
 
 /*
  * Initialize the interrupt controller devices
@@ -96,4 +100,6 @@ void alt_sys_init( void )
     ALTERA_AVALON_TIMER_INIT ( TIMER_0, timer_0);
     ALTERA_AVALON_JTAG_UART_INIT ( JTAG_UART_0, jtag_uart_0);
     ALTERA_AVALON_SYSID_QSYS_INIT ( SYSID_QSYS_0, sysid_qsys_0);
+    ALTERA_UP_AVALON_CHARACTER_LCD_INIT ( CHARACTER_LCD, character_lcd);
+    ALTERA_UP_SD_CARD_AVALON_INTERFACE_INIT ( SD_CARD_INTERFACE, sd_card_interface);
 }

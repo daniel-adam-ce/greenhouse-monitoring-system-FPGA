@@ -524,6 +524,26 @@
 					"strict" : false
 				},
 				{
+					"name" : "SD_CLK",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_ON",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_EN",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_RS",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_RW",
+					"strict" : false
+				},
+				{
 					"name" : "SDRAM_DQ[0]",
 					"strict" : false
 				},
@@ -652,7 +672,43 @@
 					"strict" : false
 				},
 				{
-					"name" : "NRF_IRQ",
+					"name" : "SD_CMD",
+					"strict" : false
+				},
+				{
+					"name" : "SD_DAT",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_DATA[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_DATA[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_DATA[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_DATA[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_DATA[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_DATA[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_DATA[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LCD_DATA[7]",
 					"strict" : false
 				},
 				{
@@ -669,6 +725,10 @@
 				},
 				{
 					"name" : "KEY[2]",
+					"strict" : false
+				},
+				{
+					"name" : "NRF_IRQ",
 					"strict" : false
 				},
 				{

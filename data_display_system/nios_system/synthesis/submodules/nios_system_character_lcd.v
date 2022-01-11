@@ -57,7 +57,7 @@ module nios_system_character_lcd (
  *****************************************************************************/
 
 parameter	CURSOR_ON	= 1'b0;
-parameter	BLINKING_ON	= 1'b1;
+parameter	BLINKING_ON	= 1'b0;
 
 /*****************************************************************************
  *                             Port Declarations                             *

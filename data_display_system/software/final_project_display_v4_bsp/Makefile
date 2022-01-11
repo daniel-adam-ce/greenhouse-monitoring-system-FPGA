@@ -208,6 +208,13 @@ GENERATED_C_LIB_SRCS += alt_sys_init.c
 # used to build each file.
 #-------------------------------------------------------------------------------
 
+# altera_up_sd_card_avalon_interface_driver sources root 
+Altera_UP_SD_Card_Avalon_Interface_driver_SRCS_ROOT := drivers
+
+# altera_up_sd_card_avalon_interface_driver sources 
+Altera_UP_SD_Card_Avalon_Interface_driver_C_LIB_SRCS := \
+	$(Altera_UP_SD_Card_Avalon_Interface_driver_SRCS_ROOT)/src/Altera_UP_SD_Card_Avalon_Interface.c
+
 # altera_avalon_jtag_uart_driver sources root 
 altera_avalon_jtag_uart_driver_SRCS_ROOT := drivers
 
@@ -276,6 +283,13 @@ altera_nios2_gen2_hal_driver_ASM_LIB_SRCS := \
 	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_log_macro.S \
 	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/crt0.S
 
+# avalon_character_lcd_driver sources root 
+avalon_character_lcd_driver_SRCS_ROOT := drivers
+
+# avalon_character_lcd_driver sources 
+avalon_character_lcd_driver_C_LIB_SRCS := \
+	$(avalon_character_lcd_driver_SRCS_ROOT)/src/altera_up_avalon_character_lcd.c
+
 # hal sources root 
 hal_SRCS_ROOT := HAL
 
@@ -338,10 +352,12 @@ hal_C_LIB_SRCS := \
 
 # Assemble all component C source files 
 COMPONENT_C_LIB_SRCS += \
+	$(Altera_UP_SD_Card_Avalon_Interface_driver_C_LIB_SRCS) \
 	$(altera_avalon_jtag_uart_driver_C_LIB_SRCS) \
 	$(altera_avalon_sysid_qsys_driver_C_LIB_SRCS) \
 	$(altera_avalon_timer_driver_C_LIB_SRCS) \
 	$(altera_nios2_gen2_hal_driver_C_LIB_SRCS) \
+	$(avalon_character_lcd_driver_C_LIB_SRCS) \
 	$(hal_C_LIB_SRCS)
 
 # Assemble all component assembly source files 
