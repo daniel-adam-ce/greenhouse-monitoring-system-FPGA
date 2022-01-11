@@ -48,8 +48,6 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
-set_global_assignment -name VERILOG_FILE final_project.v
-set_global_assignment -name QIP_FILE nios_system/synthesis/nios_system.qip
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
@@ -216,26 +214,16 @@ set_location_assignment PIN_AD27 -to SW[3]
 set_location_assignment PIN_AC27 -to SW[2]
 set_location_assignment PIN_AC28 -to SW[1]
 set_location_assignment PIN_AB28 -to SW[0]
-set_location_assignment PIN_AD22 -to NRF_MISO
-set_location_assignment PIN_AG25 -to NRF_MOSI
-set_location_assignment PIN_AD25 -to NRF_SCK
+set_location_assignment PIN_AE15 -to BME_MISO
+set_location_assignment PIN_AD21 -to BME_CSN
+set_location_assignment PIN_AE16 -to BME_MOSI
+set_location_assignment PIN_AD15 -to BME_SCK
+set_global_assignment -name QIP_FILE nios_system/synthesis/nios_system.qip
+set_global_assignment -name VERILOG_FILE final_project.v
 set_location_assignment PIN_AE25 -to NRF_CE
 set_location_assignment PIN_AH25 -to NRF_CSN
+set_location_assignment PIN_AD25 -to NRF_SCK
 set_location_assignment PIN_AF22 -to NRF_IRQ
-set_location_assignment PIN_AE13 -to SD_CLK
-set_location_assignment PIN_AD14 -to SD_CMD
-set_location_assignment PIN_AE14 -to SD_DAT
-set_location_assignment PIN_AC14 -to SD_DAT3
-set_location_assignment PIN_M5 -to LCD_DATA[7]
-set_location_assignment PIN_M3 -to LCD_DATA[6]
-set_location_assignment PIN_K2 -to LCD_DATA[5]
-set_location_assignment PIN_K1 -to LCD_DATA[4]
-set_location_assignment PIN_K7 -to LCD_DATA[3]
-set_location_assignment PIN_L2 -to LCD_DATA[2]
-set_location_assignment PIN_L1 -to LCD_DATA[1]
-set_location_assignment PIN_L3 -to LCD_DATA[0]
-set_location_assignment PIN_L4 -to LCD_EN
-set_location_assignment PIN_L5 -to LCD_ON
-set_location_assignment PIN_M2 -to LCD_RS
-set_location_assignment PIN_M1 -to LCD_RW
+set_location_assignment PIN_AD22 -to NRF_MISO
+set_location_assignment PIN_AG25 -to NRF_MOSI
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

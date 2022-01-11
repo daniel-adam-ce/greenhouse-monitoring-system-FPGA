@@ -29,11 +29,11 @@
 //6         end-of-packet-value r/w
 //INPUT_CLOCK: 50000000
 //ISMASTER: 1
-//DATABITS: 8
+//DATABITS: 32
 //TARGETCLOCK: 128000
 //NUMSLAVES: 1
-//CPOL: 0
-//CPHA: 0
+//CPOL: 1
+//CPHA: 1
 //LSBFIRST: 0
 //EXTRADELAY: 0
 //TARGETSSDELAY: 0
@@ -64,14 +64,14 @@ module nios_system_spi_0 (
   output           MOSI;
   output           SCLK;
   output           SS_n;
-  output  [ 15: 0] data_to_cpu;
+  output  [ 31: 0] data_to_cpu;
   output           dataavailable;
   output           endofpacket;
   output           irq;
   output           readyfordata;
   input            MISO;
   input            clk;
-  input   [ 15: 0] data_from_cpu;
+  input   [ 31: 0] data_from_cpu;
   input   [  2: 0] mem_addr;
   input            read_n;
   input            reset_n;
@@ -94,13 +94,13 @@ reg              TOE;
 wire             TRDY;
 wire             control_wr_strobe;
 reg              data_rd_strobe;
-reg     [ 15: 0] data_to_cpu;
+reg     [ 31: 0] data_to_cpu;
 reg              data_wr_strobe;
 wire             dataavailable;
 wire             ds_MISO;
 wire             enableSS;
 wire             endofpacket;
-reg     [ 15: 0] endofpacketvalue_reg;
+reg     [ 31: 0] endofpacketvalue_reg;
 wire             endofpacketvalue_wr_strobe;
 reg              iEOP_reg;
 reg              iE_reg;
@@ -112,28 +112,29 @@ reg              iTRDY_reg;
 wire             irq;
 reg              irq_reg;
 wire             p1_data_rd_strobe;
-wire    [ 15: 0] p1_data_to_cpu;
+wire    [ 31: 0] p1_data_to_cpu;
 wire             p1_data_wr_strobe;
 wire             p1_rd_strobe;
 wire    [  7: 0] p1_slowcount;
 wire             p1_wr_strobe;
 reg              rd_strobe;
 wire             readyfordata;
-reg     [  7: 0] rx_holding_reg;
-reg     [  7: 0] shift_reg;
+reg     [ 31: 0] rx_holding_reg;
+reg     [ 31: 0] shift_reg;
 wire             slaveselect_wr_strobe;
 wire             slowclock;
 reg     [  7: 0] slowcount;
 wire    [ 10: 0] spi_control;
-reg     [ 15: 0] spi_slave_select_holding_reg;
-reg     [ 15: 0] spi_slave_select_reg;
+reg     [ 31: 0] spi_slave_select_holding_reg;
+reg     [ 31: 0] spi_slave_select_reg;
 wire    [ 10: 0] spi_status;
-reg     [  4: 0] state;
+reg     [  6: 0] state;
 reg              stateZero;
 wire             status_wr_strobe;
+reg              transaction_primed;
 reg              transmitting;
 reg              tx_holding_primed;
-reg     [  7: 0] tx_holding_reg;
+reg     [ 31: 0] tx_holding_reg;
 reg              wr_strobe;
 wire             write_shift_reg;
 wire             write_tx_holding;
@@ -298,7 +299,7 @@ wire             write_tx_holding;
     end
 
 
-  // 'state' counts from 0 to 17.
+  // 'state' counts from 0 to 65.
   always @(posedge clk or negedge reset_n)
     begin
       if (reset_n == 0)
@@ -308,8 +309,8 @@ wire             write_tx_holding;
         end
       else if (transmitting & slowclock)
         begin
-          stateZero <= state == 17;
-          if (state == 17)
+          stateZero <= state == 65;
+          if (state == 65)
               state <= 0;
           else 
             state <= state + 1;
@@ -318,7 +319,7 @@ wire             write_tx_holding;
 
 
   assign enableSS = transmitting & ~stateZero;
-  assign MOSI = shift_reg[7];
+  assign MOSI = shift_reg[31];
   assign SS_n = (enableSS | SSO_reg) ? ~spi_slave_select_reg : {1 {1'b1} };
   assign SCLK = SCLK_reg;
   // As long as there's an empty spot somewhere,
@@ -344,8 +345,9 @@ wire             write_tx_holding;
           tx_holding_reg <= 0;
           tx_holding_primed <= 0;
           transmitting <= 0;
-          SCLK_reg <= 0;
+          SCLK_reg <= 1;
           MISO_reg <= 0;
+          transaction_primed <= 0;
         end
       else 
         begin
@@ -359,7 +361,7 @@ wire             write_tx_holding;
               TOE <= 1;
 
           // EOP must be updated by the last (2nd) cycle of access.
-          if ((p1_data_rd_strobe && (rx_holding_reg == endofpacketvalue_reg)) || (p1_data_wr_strobe && (data_from_cpu[7 : 0] == endofpacketvalue_reg)))
+          if ((p1_data_rd_strobe && (rx_holding_reg == endofpacketvalue_reg)) || (p1_data_wr_strobe && (data_from_cpu == endofpacketvalue_reg)))
               EOP <= 1;
           if (write_shift_reg)
             begin
@@ -383,24 +385,33 @@ wire             write_tx_holding;
               ROE <= 0;
               TOE <= 0;
             end
+          if (transaction_primed)
+            begin
+              transaction_primed <= 0;
+              //A transaction has just completed.  Shift the rx data into the rx holding register, and flag the read overrun error if rx holdingwas already occupied.
+              transmitting <= 0;
+
+              RRDY <= 1;
+              // Transfer the rx data to the holding register.
+              rx_holding_reg <= shift_reg;
+
+              //This may be unnecessary...
+              SCLK_reg <= 1;
+
+              if (RRDY)
+                  ROE <= 1;
+            end
           if (slowclock)
             begin
-              if (state == 17)
-                begin
-                  transmitting <= 0;
-                  RRDY <= 1;
-                  rx_holding_reg <= shift_reg;
-                  SCLK_reg <= 0;
-                  if (RRDY)
-                      ROE <= 1;
-                end
+              if (state == 65)
+                  transaction_primed <= 1;
               else if (state != 0)
                   if (transmitting)
                       SCLK_reg <= ~SCLK_reg;
-              if (SCLK_reg ^ 0 ^ 0)
+              if (SCLK_reg ^ 1 ^ 1)
                 begin
-                  if (1)
-                      shift_reg <= {shift_reg[6 : 0], MISO_reg};
+                  if (state != 0 && state != 1)
+                      shift_reg <= {shift_reg[30 : 0], MISO_reg};
                 end
               else 
                 MISO_reg <= ds_MISO;

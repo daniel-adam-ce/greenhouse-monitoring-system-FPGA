@@ -508,6 +508,18 @@
 					"strict" : false
 				},
 				{
+					"name" : "BME_CSN",
+					"strict" : false
+				},
+				{
+					"name" : "BME_MOSI",
+					"strict" : false
+				},
+				{
+					"name" : "BME_SCK",
+					"strict" : false
+				},
+				{
 					"name" : "NRF_CE",
 					"strict" : false
 				},
@@ -521,26 +533,6 @@
 				},
 				{
 					"name" : "NRF_SCK",
-					"strict" : false
-				},
-				{
-					"name" : "SD_CLK",
-					"strict" : false
-				},
-				{
-					"name" : "LCD_ON",
-					"strict" : false
-				},
-				{
-					"name" : "LCD_EN",
-					"strict" : false
-				},
-				{
-					"name" : "LCD_RS",
-					"strict" : false
-				},
-				{
-					"name" : "LCD_RW",
 					"strict" : false
 				},
 				{
@@ -672,43 +664,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "SD_CMD",
+					"name" : "NRF_IRQ",
 					"strict" : false
 				},
 				{
-					"name" : "SD_DAT",
-					"strict" : false
-				},
-				{
-					"name" : "LCD_DATA[0]",
-					"strict" : false
-				},
-				{
-					"name" : "LCD_DATA[1]",
-					"strict" : false
-				},
-				{
-					"name" : "LCD_DATA[2]",
-					"strict" : false
-				},
-				{
-					"name" : "LCD_DATA[3]",
-					"strict" : false
-				},
-				{
-					"name" : "LCD_DATA[4]",
-					"strict" : false
-				},
-				{
-					"name" : "LCD_DATA[5]",
-					"strict" : false
-				},
-				{
-					"name" : "LCD_DATA[6]",
-					"strict" : false
-				},
-				{
-					"name" : "LCD_DATA[7]",
+					"name" : "BME_IRQ",
 					"strict" : false
 				},
 				{
@@ -728,11 +688,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "NRF_IRQ",
+					"name" : "SW[0]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[0]",
+					"name" : "BME_MISO",
 					"strict" : false
 				},
 				{
@@ -752,6 +712,86 @@
 					"strict" : false
 				},
 				{
+					"name" : "SW[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[20]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[12]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[28]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[19]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[11]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[27]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[18]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[10]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[26]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[17]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[9]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[25]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[21]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[13]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[29]",
+					"strict" : false
+				},
+				{
 					"name" : "SW[15]",
 					"strict" : false
 				},
@@ -768,39 +808,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW[27]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[26]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[25]",
-					"strict" : false
-				},
-				{
 					"name" : "SW[22]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[21]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[20]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[19]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[18]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[17]",
 					"strict" : false
 				},
 				{
@@ -812,55 +820,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW[13]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[29]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[12]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[28]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[11]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[10]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[9]",
-					"strict" : false
-				},
-				{
 					"name" : "SW[6]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[5]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[4]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[3]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[2]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[1]",
 					"strict" : false
 				},
 				{
